@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  </body>
+</html>
+<script type="text/javascript">
+
+
+
+  var Card = function(rank, suit){
+    this.rank = rank;
+    this.suit = suit;
+    this.values = {
+      "Ace" : 1, "Two" : 2, "Three" : 3, "Four" : 4, "Five" : 5, "Six" : 6, "Seven" : 7,
+      "Eight" : 8, "Nine" : 9, "Ten" : 10, "Jack" : 11, "Queen" :12, "King": 13
+    }
+  };
+
+  Card.prototype.value = function(){
+    return this.values[this.rank]
+  };
+
+
+
+
+  var Deck = function() {
+    this.rank  = [
+      "Ace", "Two", "Three", "Four", "Five", "Six", "Seven",
+      "Eight", "Nine", "Ten", "Jack", "Queen", "King"
+  ];
+     this.suit = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
+
+     this.cards = [];
+
+    for (var i=0; i < this.rank.length; i++) {
+      this.cards.push(new Card(this.rank[i], this.suit[0]));
+      this.cards.push(new Card(this.rank[i], this.suit[1]));
+      this.cards.push(new Card(this.rank[i], this.suit[2]));
+      this.cards.push(new Card(this.rank[i], this.suit[3]));
+  };
+   };
+
+  Deck.prototype.shuffle = function(){
+        var currentIndex = this.cards.length, temporaryValue, randomIndex;
+
+        while (0 !== currentIndex) {
+
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+
+          temporaryValue = this.cards[currentIndex];
+          this.cards[currentIndex] = this.cards[randomIndex];
+          this.cards[randomIndex] = temporaryValue;
+        }
+        return this.cards;
+      }
+
+
+Deck.prototype.draw = function(){
+  return this.cards.pop()
+};
+
+
+
+
+  var Player = function(name){
+    this.name = name;
+  };
+
+  Player.prototype.hand = function(card1, card2, card3){
+    this.hand = [card1, card2, card3]
+  };
+
+  var Game = function(){
+    var user = prompt ('What is the users name? ')
+    player1 = new Player(user);
+
+    var gameDeck = new Deck();
+    for (var i=0; i < 4; i++) {
+      Player.prototype.hand.this.hand.push(Deck.prototype.draw)
+    };
+  };
+
+
+
+</script>
